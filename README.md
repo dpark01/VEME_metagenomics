@@ -93,6 +93,7 @@ ${READ_LEN} default =  100
 Our reads are 1x100bp so we do not need to speify. If you are using the pyhon script, you need to speficy the kmer distribution database corresponding to the Kraken database previously used and your read length.  
 
 python script alternative:
+
    ``python est_abundance.py -i input.kreport -k $KRAKEN_DB/database$READ_LENmers.kmer_distrib -o output.bracken``
 
 ### Running a for loop on all fastq files for the code:
