@@ -56,7 +56,7 @@ Kraken 2's output contains:
 
 
 #### Running Kraken
-* kraken2 --use-names --db $KRAKEN_DB seqs.fa --report kreport
+   ``kraken2 --use-names --db $KRAKEN_DB seqs.fa --report kreport``
 
 ### Running a for loop on all fastq files for the code:
 	
@@ -93,7 +93,7 @@ ${READ_LEN} default =  100
 Our reads are 1x100bp so we do not need to speify. If you are using the pyhon script, you need to speficy the kmer distribution database corresponding to the Kraken database previously used and your read length.  
 
 python script alternative:
-* python est_abundance.py -i input.kreport -k $KRAKEN_DB/database$READ_LENmers.kmer_distrib -o output.bracken
+   ``python est_abundance.py -i input.kreport -k $KRAKEN_DB/database$READ_LENmers.kmer_distrib -o output.bracken``
 
 ### Running a for loop on all fastq files for the code:
 	
@@ -111,7 +111,7 @@ python script alternative:
 #### Report convertion 
 kreport2krona.py converts a Kraken-style report into Krona-compatible format (https://github.com/jenniferlu717/KrakenTools/blob/master/kreport2krona.py)
 
-* python kreport2krona.py -r mysample_bracken.kreport -o mysample.krona
+   ``python kreport2krona.py -r mysample_bracken.kreport -o mysample.krona``
 
 ### Running a for loop on all fastq files for the code:
 
@@ -124,7 +124,7 @@ kreport2krona.py converts a Kraken-style report into Krona-compatible format (ht
 #### Krona chart
 Use ktImportText to create a chart based on a txt file that lists values and wedge hierarchies to add them to (https://github.com/marbl/Krona/wiki/Importing-text-and-XML-data)
 
-* ktImportText mysample.krona -o mysample.html
+   ``ktImportText mysample.krona -o mysample.html ``
 
 ### Running a for loop on all fastq files for the code:
 
@@ -133,11 +133,6 @@ Use ktImportText to create a chart based on a txt file that lists values and wed
 			base=${infile%.krona}
 			ktImportText ${infile} -o ${base}.html
         done``
-
-
-
-
-
 
 
 
