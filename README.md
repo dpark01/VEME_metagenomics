@@ -1,4 +1,4 @@
-# VEME 2023 NGS Metagenomic classification Tutorial
+# VEME 2023 NGS Taxonomic assignment Tutorial
 
 ## Carla Mavian
 
