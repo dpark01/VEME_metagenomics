@@ -30,9 +30,9 @@ In this tutorial we will learn how to taxonomically classify and visualize our m
 
 3. go in the folder and make a link to the files we are using
 
-    `` cd Desktop/metagenomics``
+   ``cd Desktop/metagenomics``
    
-    `` ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz . `` 
+   ``ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz . `` 
 
 
 
