@@ -3,8 +3,7 @@
 ## Carla Mavian
 
 #### `https://github.com/cmavian/VEME_metagenomics`
-#### 
-#### 
+
 ### 1. Background
 We have collected field Aedes aegypti mosquitoes from different locations across the state of Florida, in the United
 States, and we want to understand what is the composition of their microbiome. We have extracted RNA and
@@ -36,8 +35,7 @@ In this tutorial we will learn how to taxonomically classify and visualize our m
 
 
 
-#### 
-#### 
+
 ### 2. Kraken2: 
 Kraken is a taxonomic sequence classifier that assigns taxonomic labels to DNA sequences. 
 Kraken examines the k-mers within a query sequence and uses the information within those k-mers to query a database. That database maps k-mers to the lowest common ancestor (LCA) of all genomes known to contain a given k-mer.
@@ -62,15 +60,14 @@ Kraken 2's output contains:
 ### Running a for loop on all fastq files for the code:
 	
 ```
-    for infile in *.fastq.gz
-        do
-        	base=${infile%.fastq.gz}
-            kraken2 --use-names --db /data/kraken2/minikraken2_v1_8GB --report ${base}.kreport ${infile}
+for infile in *.fastq.gz
+	do
+		base=${infile%.fastq.gz}
+		kraken2 --use-names --db /data/kraken2/minikraken2_v1_8GB --report ${base}.kreport ${infile}
         done
 ```  
 	
-#### 
-#### 
+
 ### 3. Bracken:
 Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample. 
 Braken uses the taxonomy labels assigned by Kraken2 to estimate the number of reads originating from each species present in a sample.
@@ -89,7 +86,7 @@ Fraction of Total Reads
 #### Running Bracken
 Bracken can be run using either the bracken shell script or the est_abundance python script. 
 
-``bracken -i input.kreport -d $KRAKEN_DB/ -r ${READ_LEN} -o output.bracken``
+```bracken -i input.kreport -d $KRAKEN_DB/ -r ${READ_LEN} -o output.bracken```
 
 ${READ_LEN} default =  100
 
@@ -97,33 +94,38 @@ Our reads are 1x100bp so we do not need to speify. If you are using the pyhon sc
 
 python script alternative:
 
-   ``python est_abundance.py -i input.kreport -k $KRAKEN_DB/database$READ_LENmers.kmer_distrib -o output.bracken``
+```python est_abundance.py -i input.kreport -k $KRAKEN_DB/database$READ_LENmers.kmer_distrib -o output.bracken```
 
 ### Running a for loop on all fastq files for the code:
 	
-    ``for infile in *.kreport
-        do
-        	base=${infile%.kreport}
-            /usr/local/share/Bracken-2.7/bracken -i ${infile} -d /data/kraken2/minikraken2_v1_8GB/ -o ${base}.bracken 
-        done`` 
+```
+for infile in *.kreport
+	do
+		base=${infile%.kreport}
+		/usr/local/share/Bracken-2.7/bracken -i ${infile} -d /data/kraken2/minikraken2_v1_8GB/ -o ${base}.bracken 
+        done
+``` 
 
 
-#### 
-#### 
+
 ### 4. KRONA
 
 #### Report convertion 
 kreport2krona.py converts a Kraken-style report into Krona-compatible format (https://github.com/jenniferlu717/KrakenTools/blob/master/kreport2krona.py)
 
-   ``python kreport2krona.py -r mysample_bracken.kreport -o mysample.krona``
+```
+python kreport2krona.py -r mysample_bracken.kreport -o mysample.krona
+```
 
 ### Running a for loop on all fastq files for the code:
 
-    ``for infile in *_bracken_species.kreport
-        do
-			base=${infile%_bracken_species.kreport}
-			python /usr/local/share/kreport2krona.py -r ${infile} -o ${base}.krona
-        done``
+```
+for infile in *_bracken_species.kreport
+	 do
+		base=${infile%_bracken_species.kreport}
+		python /usr/local/share/kreport2krona.py -r ${infile} -o ${base}.krona
+        done
+```
 
 #### Krona chart
 Use ktImportText to create a chart based on a txt file that lists values and wedge hierarchies to add them to (https://github.com/marbl/Krona/wiki/Importing-text-and-XML-data)
