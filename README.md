@@ -61,11 +61,13 @@ Kraken 2's output contains:
 
 ### Running a for loop on all fastq files for the code:
 	
-    ```for infile in *.fastq.gz
+    ```
+    for infile in *.fastq.gz
         do
         	base=${infile%.fastq.gz}
             kraken2 --use-names --db /data/kraken2/minikraken2_v1_8GB --report ${base}.kreport ${infile}
-        done```  
+        done
+	```  
 	
 #### 
 #### 
