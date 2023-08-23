@@ -22,17 +22,17 @@ In this tutorial we will learn how to taxonomically classify and visualize our m
 
 1. going into home directory
 
-   ``cd``
+   ```cd```
 
 2. let's make a working folder
  
-   ``mkdir Desktop/metagenomics`` 
+   ```mkdir Desktop/metagenomics```
 
 3. go in the folder and make a link to the files we are using
 
-   ``cd Desktop/metagenomics``
+   ```cd Desktop/metagenomics```
    
-   ``ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz . `` 
+   ```ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz . ``` 
 
 
 
@@ -57,15 +57,15 @@ Kraken 2's output contains:
 
 
 #### Running Kraken
-   ``kraken2 --use-names --db $KRAKEN_DB seqs.fa --report kreport``
+   ```kraken2 --use-names --db $KRAKEN_DB seqs.fa --report kreport```
 
 ### Running a for loop on all fastq files for the code:
 	
-    ``for infile in *.fastq.gz
+    ```for infile in *.fastq.gz
         do
         	base=${infile%.fastq.gz}
             kraken2 --use-names --db /data/kraken2/minikraken2_v1_8GB --report ${base}.kreport ${infile}
-        done``  
+        done```  
 	
 #### 
 #### 
