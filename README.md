@@ -5,9 +5,7 @@
 #### `https://github.com/cmavian/VEME_metagenomics`
 
 ### 1. Background
-We have collected field Aedes aegypti mosquitoes from different locations across the state of Florida, in the United
-States, and we want to understand what is the composition of their microbiome. We have extracted RNA and
-performed shotgun sequencing with Illumina. Our reads are 100bp single-read. You can read more about this study here: https://journals.asm.org/doi/10.1128/msphere.00316-20
+We collected Aedes aegypti mosquitoes from different locations across the state of Florida, in the United States, and we want to understand what is the composition of their microbiome. We extracted the RNA from the abdomen of the mosquitoes, and performed shotgun sequencing with Illumina. Our reads are 100bp single-read. You can read more about this study here: https://journals.asm.org/doi/10.1128/msphere.00316-20
 
 #### Metagenomic Workflow: 
 In this tutorial we will learn how to taxonomically classify and visualize our metagenomic reads obtained with Illumina using the following programs:
