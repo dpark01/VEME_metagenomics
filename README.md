@@ -21,11 +21,15 @@ In this tutorial we will learn how to taxonomically classify and visualize our m
 
 1. going into home directory
 
-   ```cd```
+```
+cd
+```
 
 2. let's make a working folder
  
-   ```mkdir Desktop/metagenomics```
+```
+mkdir Desktop/metagenomics
+```
 
 3. go in the folder and make a link to the files we are using
 
