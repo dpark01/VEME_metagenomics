@@ -39,6 +39,10 @@ cd Desktop/metagenomics
 sudo cp /usr/local/share/data/metagenomics/data/*.fastq.gz .
 ```
 
+```
+sudo chmod 666 Palmetto-250k.fastq.gz 
+```
+
 you could also make a link to the files using:
 ```
 ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
