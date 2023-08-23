@@ -2,7 +2,7 @@
 
 ## Carla Mavian
 
-#### `https://github.com/cmavian/VEME_metagenomics`
+#### `https://cmavian.github.io/VEME_metagenomics`
 
 ### 1. Background
 We collected Aedes aegypti mosquitoes from different locations across the state of Florida, in the United States, and we want to understand what is the composition of their microbiome. We extracted the RNA from the abdomen of the mosquitoes, and performed shotgun sequencing with Illumina. Our reads are 100bp single-read. You can read more about this study here: https://journals.asm.org/doi/10.1128/msphere.00316-20
@@ -17,34 +17,16 @@ In this tutorial we will learn how to taxonomically classify and visualize our m
 
 #### Setting up our folder for the analysis:
 
-1. going into home directory
-
-```
-cd
-```
-
-2. let's make a working folder
+1. let's make a working folder
  
 ```
-mkdir Desktop/metagenomics
+mkdir -p ~/metagenomics
 ```
 
-3. go in the folder and copy the files
+2. go in the folder and link in the files
 
 ```
-cd Desktop/metagenomics
-```
-
-```
-sudo cp /usr/local/share/data/metagenomics/data/*.fastq.gz .
-```
-
-```
-sudo chmod 666 Palmetto-250k.fastq.gz 
-```
-
-you could also make a link to the files using:
-```
+cd ~/metagenomics
 ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
 ``` 
 
@@ -55,11 +37,11 @@ ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
 Kraken is a taxonomic sequence classifier that assigns taxonomic labels to DNA sequences. 
 Kraken examines the k-mers within a query sequence and uses the information within those k-mers to query a database. That database maps k-mers to the lowest common ancestor (LCA) of all genomes known to contain a given k-mer.
 
-To get a full list of options, use kraken2 --help.
+To get a full list of options, use `kraken2 --help`.
 
 #### Standard Kraken Output Format
-* --use-names replaces the taxonomy ID column with the scientific name and the taxonomy ID in parenthesis (e.g., "Bacteria (taxid 2)"). 
-* --report option writes out the sample report in tab-delimited format
+* `--use-names` replaces the taxonomy ID column with the scientific name and the taxonomy ID in parenthesis (e.g., "Bacteria (taxid 2)"). 
+* `--report` option writes out the sample report in tab-delimited format
 
 Kraken 2's output contains:
 1. "C"/"U": a one letter code indicating that the sequence was either classified or unclassified. A rank code, indicating (U)nclassified, (R)oot, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. 
