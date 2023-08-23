@@ -35,15 +35,17 @@ mkdir Desktop/metagenomics
 cd Desktop/metagenomics
 ```
 
+we need to copy the files using sudo because we have an issue of permission with one file with:
 ```
 sudo cp /usr/local/share/data/metagenomics/data/*.fastq.gz .
 ```
 
+and we need to change permisison of write and read of the file with:
 ```
 sudo chmod 666 Palmetto-250k.fastq.gz 
 ```
 
-you could also make a link to the files using:
+if permissions were set correctly, you could havev just make a link to the files using:
 ```
 ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
 ``` 
@@ -165,5 +167,9 @@ for infile in *.krona
         done
 ```
 
+since we had permission issues, let's do:
 
+```
+chmod 666 *.html
+```
 
