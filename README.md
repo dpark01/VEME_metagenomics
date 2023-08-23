@@ -29,12 +29,17 @@ cd
 mkdir Desktop/metagenomics
 ```
 
-3. go in the folder and make a link to the files we are using
+3. go in the folder and copy the files
 
 ```
 cd Desktop/metagenomics
 ```
-   
+
+```
+sudo cp /usr/local/share/data/metagenomics/data/*.fastq.gz .
+```
+
+you could also make a link to the files using:
 ```
 ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
 ``` 
